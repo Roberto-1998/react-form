@@ -130,7 +130,7 @@ const Form=(props)=>{
         updateData('color', '')
         updateData('domain', '')
         updateData('nameSpace', '')
-        updateData('image')
+        updateData('image', null)
      
     }
 
