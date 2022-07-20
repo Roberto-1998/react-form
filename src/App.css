@@ -4,8 +4,6 @@
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
-    
-    
 }
 
 .svg-content{
@@ -13,26 +11,22 @@
 }
 
 .form-content{
-   
    flex: 90%;
-    padding: 2rem 1rem 8rem 1rem;
+   margin: auto;
+   padding: 2rem 1rem 8rem 1rem;
 }
 
 
 
 @media only screen and (min-width : 992px) {
-
     .form-content{
        flex-basis: 40%;
-       /*  flex:0 0 50%; */
     }
 
     .svg-content{
-      
         margin-top: 250px;
         display: block;
-       /*   flex:0 0 40%; */
-         align-self: flex-start;
+        align-self: flex-start;
          
     }
    

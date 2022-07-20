@@ -1,6 +1,6 @@
-import React, {useReducer, useState} from "react";
+import React, {useReducer} from "react";
 import Form from "./components/Form";
-import SvgComponent from "./components/SvgComponent/SvgComponent";
+import SvgComponent from "./components/SvgComponent";
 import './App.css'
 
 
@@ -58,6 +58,8 @@ const [state, dispatch]=useReducer(reducer, initialState);
 
 const {nameSpace, domain, colorTheme, image}=state
 
+
+// Actualiza los estados de App de los variables que recibe de Form
 const updateData=(type, data)=>{
 
     switch (type) {
@@ -102,17 +104,12 @@ const updateData=(type, data)=>{
         <Form updateData={updateData}  ></Form>
       </div>
       
-
-
     <div className="svg-content">
           <SvgComponent name={nameSpace} domain={domain} color={colorTheme} image={image}></SvgComponent>
     </div>
 
-
-     
     </section>
   )
-
 
 }
 

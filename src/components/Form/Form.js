@@ -1,4 +1,4 @@
-import React, {useState, useReducer} from "react";
+import React, { useReducer} from "react";
 import './Form.css'
 
 import {useForm} from 'react-hook-form'
@@ -11,19 +11,21 @@ import {UnarchiveSharp,ErrorOutlineSharp} from '@mui/icons-material'
 
 const Form=(props)=>{
 
-    // Función recibida desde App
+    // Función recibida desde App, a traves de la cual se enviará data
     const {updateData}=props
 
-    const {register, handleSubmit, watch, reset}=useForm({
-        defaultValues:{
-            privacy:"private"
-        }
-    })
+    const {register, handleSubmit, watch, reset}=useForm({})
        
 
+    const initialState={
+        image:null,
+        peopleWork:'',
+        color:'',
+        isColorPickerActive:false
+
+    }
 
     const reducer=(state, action)=>{
-
       switch (action.type) {
         case 'SET_COLOR':
             return{
@@ -56,31 +58,17 @@ const Form=(props)=>{
         default:
             return state
       }
-
-
-
     } 
   
-
-    const initialState={
-        image:null,
-        peopleWork:'',
-        color:'',
-        isColorPickerActive:false
-
-    }
    
     const [state, dispatch]=useReducer(reducer, initialState);
-
-  
 
     const {image,peopleWork, color,isColorPickerActive }=state
 
 
 
  
-
-   
+  
 // Obtener el texto de los Inputs y enviárselos a App
     const handleText=(e)=>{
         if(e.target.name==='nameSpace'){
@@ -117,7 +105,7 @@ const Form=(props)=>{
         }
        }
 
-// Envío de formulario
+// Envío de formulario 
     const onSubmit=(data)=>{
        const payload={
             ...data,
@@ -132,7 +120,7 @@ const Form=(props)=>{
 
     // Descartar cambios de formulario
     const resetForm=()=>{
-        // Actualizar estados
+        // Actualizar estados a valor inicial
        dispatch({type:'RESET'})
 
         //Reset Forms Fields
