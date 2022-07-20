@@ -1,0 +1,264 @@
+:root{
+    --main-color:#39b0ff;
+    --gray-color:#00000080
+}
+
+
+
+
+/* ALGUNAS PROPIEDADES GLOBALES */
+h4,p{
+    margin: 0;
+    padding: 0;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.capitalize{
+    text-transform: capitalize !important;
+}
+
+.margin-15{
+    margin-top: 1.5rem;
+}
+
+.margin-10{
+    margin-top: 1rem;
+}
+
+.main-content{
+    margin: 0 auto;
+    width: 90%;
+    padding: 2rem 1rem 4rem 1rem;
+   
+}
+
+.main-content h1{
+    font-size: 3vmin;
+}
+
+.main-content h4, .main-content label{
+    font-size: 2.6vmin;
+}
+
+.main-content p{
+    font-size: 2.2vmin;
+}
+
+.warning-icon{
+    color: var(--gray-color);
+}
+/* FIN PROPIEDADES GLOBALES */
+
+
+
+/* PARA MATERIAL UI */
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+    text-transform: none !important;
+  }
+  
+  .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
+    color: var(--main-color) !important;
+}
+
+
+
+/* -------PARA UTILIZAR FLEXBOX--------- */
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+.align-items-start{
+    align-items: flex-start;
+}
+
+.align-self-start{
+    align-self: flex-start;
+}
+
+/* -------FIN  PARA UTILIZAR FLEXBOX--------- */
+
+
+
+.avatar-logo{
+    padding:2rem;
+    font-size:2rem !important;
+    background-color: #343C4A !important;   
+}
+
+
+
+/* ICON WARNING BOX */
+.icon-text{
+    color: var(--gray-color);
+    padding-left: 0.5rem;
+}
+.icon-text p:first-child{
+    margin-bottom: 0.7rem;
+
+}
+
+
+
+/* INPUTS TEXT */
+.input-text{
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: var(--gray-color) 1px solid;
+    border-radius: 3px;
+}
+
+.input-text::placeholder{
+    font-size: 2.2vmin;
+}
+
+
+
+
+/* INPUT TEXT DOMINIO */
+.input-wrapper{
+    width: 100%;
+    position: relative;
+}
+
+.input-wrapper input{
+    width: 100%;
+}
+
+.input-wrapper::after{
+    content: ".dofleini.com";
+    position: absolute;
+    right: 10px;
+   top: 35%;
+   color: var(--gray-color);
+   font-size: 0.75rem;
+    
+}
+
+
+
+
+
+/* RADIO BOX */
+.radio-box{
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    border: 1px solid var(--gray-color);
+    margin-right: 0.8rem;
+}
+
+.radio-box p{
+    padding-top: 0.3rem;
+    color: var(--gray-color);
+}
+
+
+/* BUTTONS */
+.color-button-black{
+    color: black !important;
+}
+
+.button-all{
+    font-size: 2.2vmin !important;
+}
+
+.button-gray{
+    border-color:var(--gray-color) !important;
+}
+
+
+.button-logo{
+    color: var(--gray-color) !important;
+    margin-left: 0.5rem !important;
+    padding: 0.1em 0.3em !important;  
+}
+
+.button-work-people{
+    margin-right: 0.5rem !important;
+    padding: 0.8em !important;
+    border-radius: 5px !important;
+    font-weight: bold !important;
+   
+}
+
+
+.active-color{
+    border-color: var(--main-color) !important;
+    color: var(--main-color) !important;
+}
+
+.padding-form-button{
+    padding:0.7em 2em !important;
+}
+
+.button-save-form{
+    margin-right: 1rem !important;
+    background-color: var(--main-color) !important;
+}
+
+
+/* IMAGE UPLOADED */
+.image-uploaded{
+    width: 80px;
+    height: 80px;
+   border-radius: 50%;
+   object-fit: cover;
+
+
+}
+
+
+
+.pickerColor{
+    width: 30px;
+    height: 30px;
+    margin-left: 0.8rem;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px 3px var(--main-color);
+    display: inline-block;
+    cursor: pointer;
+   
+}
+
+.pickerColor span{
+    padding: 3px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.chrome-picker{
+    transition: all 500ms ease;
+}
+
+@media only screen and (min-width : 992px) {
+.main-content{
+    margin: 0 3rem;
+    width: 80%;
+}
+   
+}
