@@ -1,52 +1,92 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
 import Form from "./components/Form";
 import SvgComponent from "./components/SvgComponent/SvgComponent";
 import './App.css'
 
 
+
+
+
+
 const App=()=>{
 
-const [nameSpace, setnameSpace] = useState('');
-const [domain, setDomain] = useState('');
-const [colorTheme, setColorTheme] = useState('');
-const [image, setImage]=useState(null)
+  const initialState={
+    nameSpace:'',
+    domain:'',
+    colorTheme:'',
+    image:null
+  }
+
+  const reducer=(state, action)=>{
+
+    switch (action.type) {
+      case 'SET_NAMESPACE':
+        return{
+          ...state,
+          nameSpace:action.payload
+        }
+
+      case 'SET_DOMAIN':
+        return{
+          ...state,
+          domain:action.payload
+        }
+      
+      case 'SET_COLOR_THEME':
+        return{
+          ...state,
+          colorTheme:action.payload
+        }
+
+      case 'SET_IMAGE':
+        return{
+          ...state,
+          image:action.payload
+        }
+        
+        
+    
+      default:
+        return state
+    }
+  }
+  
 
 
-/* const getNameSpace=(text)=>{
-  setnameSpace(text)
-}
 
+const [state, dispatch]=useReducer(reducer, initialState);
 
-const getDomain=(text)=>{
-  setDomain(text)
-}
-
-const getColorTheme=(color)=>{
-setColorTheme(color)
-}
-
-const getImage=(image)=>{
-  setImage(image)
-} */
-
+const {nameSpace, domain, colorTheme, image}=state
 
 const updateData=(type, data)=>{
 
     switch (type) {
         case 'nameSpace':
-          setnameSpace(data)
+          dispatch({
+            type:'SET_NAMESPACE',
+            payload:data
+          })
           break;
 
         case 'domain':
-          setDomain(data)
+         dispatch({
+          type:'SET_DOMAIN',
+          payload:data
+         })
           break;
 
         case 'image':
-          setImage(data)
+         dispatch({
+          type:'SET_IMAGE',
+          payload:data
+         })
           break;
 
         case 'color':
-          setColorTheme(data)
+          dispatch({
+            type:'SET_COLOR_THEME',
+            payload:data
+          })
           break;
       
         default:

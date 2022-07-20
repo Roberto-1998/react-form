@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useReducer} from "react";
 import './Form.css'
 
 import {useForm} from 'react-hook-form'
@@ -9,28 +9,76 @@ import { ChromePicker, CirclePicker } from 'react-color';
 import {UnarchiveSharp,ErrorOutlineSharp} from '@mui/icons-material'
 
 
-
-
-
-
-
 const Form=(props)=>{
 
+    // Función recibida desde App
     const {updateData}=props
 
-
-    const {register, handleSubmit, watch}=useForm({
+    const {register, handleSubmit, watch, reset}=useForm({
         defaultValues:{
             privacy:"private"
         }
     })
        
 
-    const [image, setImage] = useState(null)
-    const [peopleWork, setPeopleWork]=useState('11-25')
-    const [color, setColor]=useState('#39b0ff')
-    const [isColorPickerActive, setColorPickerActive]=useState(false)
+
+    const reducer=(state, action)=>{
+
+      switch (action.type) {
+        case 'SET_COLOR':
+            return{
+                ...state,
+                color:action.payload
+            }
+
+        case 'SET_IMAGE':
+            return{
+                ...state,
+                image:action.payload
+            }
+
+        case 'SET_PEOPLE_WORK':
+        return{
+            ...state,
+            peopleWork:action.payload
+        }
+
+        case 'SET_COLOR_PICKER_ACTIVE':
+            return{
+                ...state,
+                isColorPickerActive:action.payload
+            }
+
+        case 'RESET':
+            return{
+                ...initialState
+            }
+        default:
+            return state
+      }
+
+
+
+    } 
+  
+
+    const initialState={
+        image:null,
+        peopleWork:'',
+        color:'',
+        isColorPickerActive:false
+
+    }
    
+    const [state, dispatch]=useReducer(reducer, initialState);
+
+  
+
+    const {image,peopleWork, color,isColorPickerActive }=state
+
+
+
+ 
 
    
 // Obtener el texto de los Inputs y enviárselos a App
@@ -47,7 +95,10 @@ const Form=(props)=>{
 
 // Obtener color, actualizar estado y enviarlo a App
     const handleColor=(colorPicked)=>{     
-        setColor(colorPicked)
+       dispatch({
+        type:'SET_COLOR',
+        payload:colorPicked
+       })
         updateData('color',colorPicked)
     }
 
@@ -56,13 +107,17 @@ const Form=(props)=>{
 // Obtener image, actualizar estado y enviarla a App
    const onImageChange = (event) => {
         if (event.target.files && event.target.files[0]) {
-          setImage(URL.createObjectURL(event.target.files[0]));
+            dispatch({
+                type:'SET_IMAGE',
+                payload:URL.createObjectURL(event.target.files[0])
+            })
+        
           updateData('image',URL.createObjectURL(event.target.files[0]));
 
         }
        }
 
-
+// Envío de formulario
     const onSubmit=(data)=>{
        const payload={
             ...data,
@@ -71,15 +126,17 @@ const Form=(props)=>{
             color 
         }
         console.log({payload})
+        resetForm();
     }
 
 
+    // Descartar cambios de formulario
     const resetForm=()=>{
-
         // Actualizar estados
-        setColor('')
-        setImage(null)
-        setPeopleWork('')
+       dispatch({type:'RESET'})
+
+        //Reset Forms Fields
+        reset()
 
         // Actualizar información a enviar a App
         updateData('color', '')
@@ -145,12 +202,12 @@ const Form=(props)=>{
                         <h4 className="bold">¿Cuántas personas trabajarán contigo, incluyéndote a ti ?</h4>
                         <div className="flex-row margin-10">
                             <ButtonGroup variant="text" aria-label="text button group">
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='1' ? 'active-color' :''}`} onClick={()=>setPeopleWork('1')} >Sólo yo</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='2-10' ? 'active-color' :''}`} onClick={()=>setPeopleWork('2-10')}>2-10</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='11-25' ? 'active-color' :''}`} onClick={()=>setPeopleWork('11-25')}>11-25</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='26-50' ? 'active-color' :''}`} onClick={()=>setPeopleWork('26-50')}>26-50</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='51-100' ? 'active-color' :''}`} onClick={()=>setPeopleWork('51-100')}>51-100</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='500+' ? 'active-color' :''}`} onClick={()=>setPeopleWork('500+')}>500+</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='1' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'1'})} >Sólo yo</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='2-10' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'2-10'})}>2-10</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='11-25' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'11-25'})}>11-25</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='26-50' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'26-50'})}>26-50</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='51-100' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'51-100'})}>51-100</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='500+' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'500+'})}>500+</Button>
                             </ButtonGroup>
                     </div>
 
@@ -177,7 +234,7 @@ const Form=(props)=>{
                                     <CirclePicker   color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} width="100%" colors={['#39b0ff','#04B58B', '#3E9C4B', '#B6BC00', '#E59100', '#EE1F50','#D6198A', '#B321F1']}>
                                     </CirclePicker>
                                    
-                                        <span className="pickerColor" onClick={()=>setColorPickerActive(!isColorPickerActive)}>
+                                        <span className="pickerColor" onClick={()=>dispatch({type:'SET_COLOR_PICKER_ACTIVE', payload:!isColorPickerActive})}>
                                         <span></span>
                                         </span>
                                     
