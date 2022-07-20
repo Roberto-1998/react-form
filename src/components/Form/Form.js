@@ -16,7 +16,7 @@ import {UnarchiveSharp,ErrorOutlineSharp} from '@mui/icons-material'
 
 const Form=(props)=>{
 
-    const {getNameSpace, getDomain, getColorTheme, getImage}=props
+    const {updateData}=props
 
 
     const {register, handleSubmit, watch}=useForm({
@@ -27,78 +27,66 @@ const Form=(props)=>{
        
 
     const [image, setImage] = useState(null)
-    const [nameSpace, setNameSpace]=useState('')
-    const [domain, setDomain]=useState('')
     const [peopleWork, setPeopleWork]=useState('11-25')
     const [color, setColor]=useState('#39b0ff')
     const [isColorPickerActive, setColorPickerActive]=useState(false)
    
 
-
-
+   
+// Obtener el texto de los Inputs y enviárselos a App
     const handleText=(e)=>{
         if(e.target.name==='nameSpace'){
-            setNameSpace(e.target.value)
-            getNameSpace(e.target.value)
+            updateData('nameSpace',e.target.value)
         }
 
         if(e.target.name==='domain'){
-            setDomain(e.target.value)
-            getDomain(e.target.value)
+            updateData('domain',e.target.value)
         }
 
     }
 
-
+// Obtener color, actualizar estado y enviarlo a App
     const handleColor=(colorPicked)=>{     
         setColor(colorPicked)
-        getColorTheme(colorPicked)
-
+        updateData('color',colorPicked)
     }
 
    
 
-
+// Obtener image, actualizar estado y enviarla a App
    const onImageChange = (event) => {
         if (event.target.files && event.target.files[0]) {
           setImage(URL.createObjectURL(event.target.files[0]));
-          getImage(URL.createObjectURL(event.target.files[0]));
+          updateData('image',URL.createObjectURL(event.target.files[0]));
 
         }
        }
 
 
     const onSubmit=(data)=>{
-
-
-        const payload={
+       const payload={
             ...data,
-            nameSpace,
-            domain,
             peopleWork,
             image,
             color 
         }
-
-        console.log(payload)
+        console.log({payload})
     }
 
 
     const resetForm=()=>{
-              setColor('')
-        getColorTheme('')
 
-        setDomain('')
-        getDomain('')
-
-        setNameSpace('')
-        getNameSpace('')
-        
-       
+        // Actualizar estados
+        setColor('')
         setImage(null)
-        getImage(null)
-
         setPeopleWork('')
+
+        // Actualizar información a enviar a App
+        updateData('color', '')
+        updateData('domain', '')
+        updateData('nameSpace', '')
+        updateData('image')
+     
     }
 
 
@@ -133,13 +121,13 @@ const Form=(props)=>{
                   
                     <div className="flex-column margin-15">
                             <label htmlFor="nameSpace" className="bold">Nombre del espacio</label>
-                            <input className="input-text" type="text" placeholder="Ep: Mi espacio de trabajo" value={nameSpace} onChange={handleText}  name='nameSpace'  autoComplete="new-password"   />
+                            <input className="input-text" type="text" placeholder="Ep: Mi espacio de trabajo"  name='nameSpace'  autoComplete="new-password"  {...register('nameSpace')} onChange={handleText}  />
                     </div>
 
                     <div className="flex-column margin-15">
                             <label htmlFor="domain" className="bold">URL del espacio (dirección web)</label>
                             <div className="input-wrapper">
-                                <input className="input-text place-last" type="text" placeholder="Ep:mi.dominio" value={domain} onChange={handleText} name="domain"   autoComplete="new-password"   /> 
+                                <input className="input-text place-last" type="text" placeholder="Ep:mi.dominio"  name="domain"    autoComplete="new-password" {...register('domain')} onChange={handleText}  /> 
                             </div>
                               
                             <div className="flex-row"> 

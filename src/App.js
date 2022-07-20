@@ -12,7 +12,7 @@ const [colorTheme, setColorTheme] = useState('');
 const [image, setImage]=useState(null)
 
 
-const getNameSpace=(text)=>{
+/* const getNameSpace=(text)=>{
   setnameSpace(text)
 }
 
@@ -27,6 +27,31 @@ setColorTheme(color)
 
 const getImage=(image)=>{
   setImage(image)
+} */
+
+
+const updateData=(type, data)=>{
+
+    switch (type) {
+        case 'nameSpace':
+          setnameSpace(data)
+          break;
+
+        case 'domain':
+          setDomain(data)
+          break;
+
+        case 'image':
+          setImage(data)
+          break;
+
+        case 'color':
+          setColorTheme(data)
+          break;
+      
+        default:
+          break;
+  }
 }
 
 
@@ -34,7 +59,7 @@ const getImage=(image)=>{
   return(
     <section className="content" >
       <div className="form-content">
-        <Form getNameSpace={getNameSpace} getDomain={getDomain} getColorTheme={getColorTheme} getImage={getImage}  ></Form>
+        <Form updateData={updateData}  ></Form>
       </div>
       
 
