@@ -1,5 +1,8 @@
 
-
+.form-content{
+    max-width: 600px;
+    margin: 0 auto;
+}
 
 .svg-content{
     display: none;
@@ -19,7 +22,6 @@
         margin-bottom: 100px;
     }
     .form-content{
-       max-width: 1000px;
        margin: 42px 90px;
        flex: 60%;
      
