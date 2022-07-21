@@ -16,11 +16,12 @@
         width: 100%;
         flex-direction: row;
         justify-content: space-between;
+        margin-bottom: 100px;
     }
     .form-content{
-       max-width: 613px;
-       margin: 42px 110px;
-       flex: 50%;
+       max-width: 1000px;
+       margin: 42px 90px;
+       flex: 60%;
      
     }
 
@@ -28,7 +29,7 @@
         margin-top: 250px;
         display: block;
         align-self: flex-start;
-        flex: 50%;
+        flex: 40%;
          
     }
    

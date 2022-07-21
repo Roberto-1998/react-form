@@ -1,5 +1,5 @@
 :root{
-    --main-color:#39b0ff;
+    --main-color:#48B5FE;
     --gray-color:#00000080;
     --color-border:#E4E4E4
 }
@@ -46,11 +46,12 @@ h4,p{
 
 .main-content p{
     font-size: 2.2vmin;
+    line-height: 1.5;
 }
 
 .warning-icon{
     color: var(--gray-color);
-    font-size: 17px !important; 
+    font-size: 20px !important; 
 }
 /* FIN PROPIEDADES GLOBALES */
 
@@ -133,6 +134,9 @@ h4,p{
 
 .input-text::placeholder{
     font-size: 2.2vmin;
+    color: var(--gray-color);
+    font-family: 'Fira Sans', sans-serif !important;
+    
    
 }
 
@@ -185,6 +189,7 @@ h4,p{
 
 .button-all{
     font-size: 2.2vmin !important;
+    text-transform: none !important;
 }
 
 .button-gray{
@@ -195,7 +200,7 @@ h4,p{
 .button-logo{
     color: var(--gray-color) !important;
     margin-left: 0.5rem !important;
-    padding: 0.2em 0.3em !important;  
+    padding: 0.2em 0.7em !important;  
 }
 
 .button-work-people{
@@ -207,10 +212,18 @@ h4,p{
 }
 
 
-.active-color{
-    border-color: var(--main-color) !important;
-    color: var(--main-color) !important;
+
+.active-color-button{
+    border-color: #149FFC !important;
+    color: #149FFC !important;
 }
+
+
+.active-radio-box{
+    border-color: var(--main-color) !important;
+    color: #149FFC !important;
+}
+
 
 .padding-form-button{
     padding:0.7em 2em !important;
@@ -219,6 +232,8 @@ h4,p{
 .button-save-form{
     margin-right: 1rem !important;
     background-color: var(--main-color) !important;
+    font-family: 'Fira Sans', sans-serif !important;
+    font-weight: 300 !important;
 }
 
 
@@ -235,27 +250,30 @@ h4,p{
 
 
 .pickerColor{
-    width: 30px;
-    height: 30px;
+    width: 43px;
+    height: 43px;
     margin-left: 0.8rem;
     background-color: #fff;
-    padding: 5px;
+   
     border-radius: 50%;
     box-shadow: 0 0 3px 3px var(--main-color);
     display: inline-block;
     cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
    
 }
 
 .pickerColor span{
-    padding: 3px;
-    width: 20px;
-    height: 20px;
+    
+   position: absolute;
+    width: 32px;
+    height: 32px;
+    transform: translate(5px, 5px);
+    flex-shrink: 0;
     background-color: var(--main-color);
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  
 }
 
 
@@ -272,7 +290,6 @@ h4,p{
 
 
 .main-content{
- 
     width: 100%;
     padding: 0;
    
@@ -280,10 +297,19 @@ h4,p{
 
 .radio-box{
     max-width: 299px;
-    padding: 0.5em 1em;
+    padding: 0.5em;
     border-radius: 8px;
     border: 1px solid var(--color-border);
     margin-right: 0.8rem;
+}
+
+.button-work-people{
+    padding: 0.8em !important;
+    width: 76px;
+}
+
+.button-submit-group{
+    margin-top: 50px;
 }
 
 

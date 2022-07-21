@@ -145,7 +145,7 @@ const Form=(props)=>{
                     <div className="flex-row align-items-center margin-10">
                         {image ? (<img src={image} alt="" className="image-uploaded" />) : (<Avatar className="avatar-logo">B</Avatar>)}
                        
-                        <Button variant="outlined" className="button-logo button-all button-gray"  style={{textTransform:'none'}}  startIcon={<UnarchiveSharp />} component='label'>
+                        <Button variant="outlined" className="button-logo button-all button-gray"  startIcon={<UnarchiveSharp />} component='label'>
                         Subir logo
                         <input type="file" onChange={onImageChange} hidden  />
                         </Button>
@@ -190,12 +190,12 @@ const Form=(props)=>{
                         <h4 className="bold">¿Cuántas personas trabajarán contigo, incluyéndote a ti ?</h4>
                         <div className="flex-row margin-10">
                             <ButtonGroup variant="text" aria-label="text button group">
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='1' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'1'})} style={{textTransform:'none'}} >Sólo yo</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='2-10' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'2-10'})}  style={{textTransform:'none'}}>2-10</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='11-25' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'11-25'})} style={{textTransform:'none'}}>11-25</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='26-50' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'26-50'})} style={{textTransform:'none'}}>26-50</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='51-100' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'51-100'})} style={{textTransform:'none'}}>51-100</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='500+' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'500+'})} style={{textTransform:'none'}}>500+</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='1' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'1'})}  >Sólo yo</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='2-10' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'2-10'})}  >2-10</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='11-25' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'11-25'})} >11-25</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='26-50' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'26-50'})} >26-50</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='51-100' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'51-100'})} >51-100</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='500+' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'500+'})} >500+</Button>
                             </ButtonGroup>
                     </div>
 
@@ -219,7 +219,7 @@ const Form=(props)=>{
                             <div className="flex-row margin-10 circle-picker" >
 
                               
-                                    <CirclePicker   color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} width="100%" colors={['#39b0ff','#04B58B', '#3E9C4B', '#B6BC00', '#E59100', '#EE1F50','#D6198A', '#B321F1']}>
+                                    <CirclePicker circleSize={45}   color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} width="100%" colors={['#39b0ff','#04B58B', '#3E9C4B', '#B6BC00', '#E59100', '#EE1F50','#D6198A', '#B321F1']}>
                                     </CirclePicker>
                                    
                                         <span className="pickerColor" onClick={()=>dispatch({type:'SET_COLOR_PICKER_ACTIVE', payload:!isColorPickerActive})}>
@@ -233,7 +233,7 @@ const Form=(props)=>{
                     </div>
 
                     <div>
-                        <div className="flex-row margin-15">
+                        <div className="margin-15">
                         <FormControl>
                             <h4>Privacidad del espacio</h4>
                             <RadioGroup
@@ -241,8 +241,8 @@ const Form=(props)=>{
                                 name="controlled-radio-buttons-group"
                             >
                                 <div className="flex-row margin-10 justify-content-space-beetwen">
-                                    <div className={`radio-box flex-row ${watch('privacy')==='private' ? 'active-color' : ''}`} >
-                                        <FormControlLabel className="align-self-start" value="private" control={<Radio />} {...register('privacy')} checked={watch('privacy')==='private'}   />
+                                    <div className={`radio-box flex-row ${watch('privacy')==='private' ? 'active-radio-box' : ''}`} >
+                                        <Radio className="align-self-start" value="private" sx={{color:`${watch('privacy')==='public' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')} checked={watch('privacy')==='private'}   />
                                         <div >
                                             <h4>Privado</h4>
                                             <p>El contenido será visible sólo para tí y los miembros de tu Organización</p>
@@ -250,8 +250,8 @@ const Form=(props)=>{
                                 
                                     </div>
                                     
-                                    <div className={`radio-box flex-row ${watch('privacy')==='public' ? 'active-color' : ''}`} style={{marginLeft:'14px'}} >
-                                        <FormControlLabel className="align-self-start" value="public"  control={<Radio />} {...register('privacy')}  checked={watch('privacy')==='public'}   />
+                                    <div className={`radio-box flex-row ${watch('privacy')==='public' ? 'active-radio-box' : ''}`}  >
+                                        <Radio className="align-self-start" value="public" sx={{color:`${watch('privacy')==='public' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')}  checked={watch('privacy')==='public'}   />
                                         <div >
                                             <h4>Público</h4>
                                             <p>Cualquiera con el vínculo podrá ver la actividad de tu Organización</p>
@@ -266,9 +266,9 @@ const Form=(props)=>{
                     </div>
 
 
-                 <div className="margin-15">
-                    <Button variant="contained" color="primary" type="submit" className="button-save-form button-all padding-form-button capitalize">Guardar cambios</Button>
-                    <Button variant="outlined" className="button-all button-gray padding-form-button color-button-black" onClick={resetForm} style={{textTransform:'none'}}>Descartar</Button>
+                 <div className="button-submit-group">
+                    <Button variant="contained" color="primary" type="submit" className="button-save-form button-all padding-form-button">Guardar cambios</Button>
+                    <Button variant="outlined" className="button-all button-gray padding-form-button color-button-black" onClick={resetForm}>Descartar</Button>
                 </div>
 
 
