@@ -240,7 +240,7 @@ const Form=(props)=>{
                                 aria-labelledby="demo-controlled-radio-buttons-group"
                                 name="controlled-radio-buttons-group"
                             >
-                                <div className="flex-row margin-10">
+                                <div className="flex-row margin-10 justify-content-space-beetwen">
                                     <div className={`radio-box flex-row ${watch('privacy')==='private' ? 'active-color' : ''}`} >
                                         <FormControlLabel className="align-self-start" value="private" control={<Radio />} {...register('privacy')} checked={watch('privacy')==='private'}   />
                                         <div >
@@ -250,7 +250,7 @@ const Form=(props)=>{
                                 
                                     </div>
                                     
-                                    <div className={`radio-box flex-row ${watch('privacy')==='public' ? 'active-color' : ''}`} >
+                                    <div className={`radio-box flex-row ${watch('privacy')==='public' ? 'active-color' : ''}`} style={{marginLeft:'14px'}} >
                                         <FormControlLabel className="align-self-start" value="public"  control={<Radio />} {...register('privacy')}  checked={watch('privacy')==='public'}   />
                                         <div >
                                             <h4>Público</h4>

@@ -104,9 +104,9 @@ const updateData=(type, data)=>{
         <Form updateData={updateData}  ></Form>
       </div>
       
-    <div className="svg-content">
-          <SvgComponent name={nameSpace} domain={domain} color={colorTheme} image={image}></SvgComponent>
-    </div>
+      <div className="svg-content">
+            <SvgComponent name={nameSpace} domain={domain} color={colorTheme} image={image}></SvgComponent>
+      </div>
 
     </section>
   )

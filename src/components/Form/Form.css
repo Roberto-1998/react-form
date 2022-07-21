@@ -1,6 +1,7 @@
 :root{
     --main-color:#39b0ff;
-    --gray-color:#00000080
+    --gray-color:#00000080;
+    --color-border:#E4E4E4
 }
 
 
@@ -30,8 +31,8 @@ h4,p{
 
 .main-content{
     margin: 0 auto;
-    width: 90%;
-    padding: 2rem 1rem 4rem 1rem;
+    width: 100%;
+    padding: 2rem;
    
 }
 
@@ -81,6 +82,10 @@ h4,p{
     justify-content: center;
 }
 
+.justify-content-space-beetwen{
+    justify-content: space-between;
+}
+
 .align-items-center{
     align-items: center;
 }
@@ -99,7 +104,7 @@ h4,p{
 
 .avatar-logo{
     padding:2rem;
-    font-size:2rem !important;
+    font-size:37px !important;
     background-color: #343C4A !important;   
 }
 
@@ -121,12 +126,13 @@ h4,p{
 .input-text{
     padding: 0.8rem;
     margin: 0.5rem 0;
-    border: var(--gray-color) 1px solid;
+    border: var(--color-border) 1px solid !important;
     border-radius: 3px;
 }
 
 .input-text::placeholder{
     font-size: 2.2vmin;
+   
 }
 
 
@@ -158,9 +164,10 @@ h4,p{
 
 /* RADIO BOX */
 .radio-box{
-    padding: 0.5em 1em;
+    padding: 0.4em;
+    min-height: 96.56px;
     border-radius: 8px;
-    border: 1px solid var(--gray-color);
+    border: 1px solid var(--color-border);
     margin-right: 0.8rem;
 }
 
@@ -180,7 +187,7 @@ h4,p{
 }
 
 .button-gray{
-    border-color:var(--gray-color) !important;
+    border-color:var(--color-border) !important;
 }
 
 
@@ -256,9 +263,28 @@ h4,p{
 }
 
 @media only screen and (min-width : 992px) {
-.main-content{
-    margin: 0 3rem;
-    width: 80%;
+
+.main-content p, .main-content h4,.button-all,.input-wrapper::after, label, .input-text::placeholder{
+    font-size: 14px !important;
 }
+
+
+
+.main-content{
+ 
+    width: 100%;
+    padding: 0;
+   
+}
+
+.radio-box{
+    max-width: 299px;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    margin-right: 0.8rem;
+}
+
+
    
 }

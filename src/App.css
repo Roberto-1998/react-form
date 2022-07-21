@@ -1,32 +1,34 @@
 
-.content{
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-}
+
 
 .svg-content{
     display: none;
 }
 
-.form-content{
-   flex: 90%;
-   margin: auto;
-   padding: 2rem 1rem 8rem 1rem;
-}
+
 
 
 
 @media only screen and (min-width : 992px) {
+
+    .content{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
     .form-content{
-       flex-basis: 40%;
+       max-width: 613px;
+       margin: 42px 110px;
+       flex: 50%;
+     
     }
 
     .svg-content{
         margin-top: 250px;
         display: block;
         align-self: flex-start;
+        flex: 50%;
          
     }
    
