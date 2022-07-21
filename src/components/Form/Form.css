@@ -37,15 +37,15 @@ h4,p{
 }
 
 .main-content h1{
-    font-size: 3vmin;
+    font-size: 3.5vmin;
 }
 
 .main-content h4, .main-content label{
-    font-size: 2.6vmin;
+    font-size: 3.1vmin;
 }
 
 .main-content p{
-    font-size: 2.2vmin;
+    font-size: 2.7vmin;
     line-height: 1.5;
 }
 
@@ -133,7 +133,7 @@ h4,p{
 }
 
 .input-text::placeholder{
-    font-size: 2.2vmin;
+    font-size: 2.7vmin;
     color: var(--gray-color);
     font-family: 'Fira Sans', sans-serif !important;
     
@@ -159,7 +159,7 @@ h4,p{
     right: 10px;
    top: 35%;
    color: var(--gray-color);
-   font-size: 0.75rem;
+   font-size: 2.7vmin;
     
 }
 
@@ -177,7 +177,7 @@ h4,p{
 }
 
 .radio-box p{
-   
+   margin-top: 5px;
     color: var(--gray-color);
 }
 
@@ -188,7 +188,7 @@ h4,p{
 }
 
 .button-all{
-    font-size: 2.2vmin !important;
+    font-size: 2.7vmin !important;
     text-transform: none !important;
 }
 
@@ -204,10 +204,10 @@ h4,p{
 }
 
 .button-work-people{
-    margin-right: 0.5rem !important;
     padding: 0.8em !important;
     border-radius: 5px !important;
     font-weight: bold !important;
+    flex-shrink: 0;
    
 }
 
@@ -250,14 +250,11 @@ h4,p{
 
 }
 
-
-
 .pickerColor{
-    width: 43px;
-    height: 43px;
+    width: 25px;
+    height: 25px;
     margin-left: 0.8rem;
     background-color: #fff;
-   
     border-radius: 50%;
     box-shadow: 0 0 3px 3px var(--main-color);
     display: inline-block;
@@ -268,11 +265,10 @@ h4,p{
 }
 
 .pickerColor span{
-    
    position: absolute;
-    width: 32px;
-    height: 32px;
-    transform: translate(5px, 5px);
+    width: 18px;
+    height: 18px;
+    transform: translate(3.5px, 3.5px);
     flex-shrink: 0;
     background-color: var(--main-color);
     border-radius: 50%;
@@ -280,11 +276,21 @@ h4,p{
 }
 
 
+
+
+.group{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap !important;
+}
+
+
+
 .chrome-picker{
     transition: all 500ms ease;
 }
 
-@media only screen and (min-width : 992px) {
+@media only screen and (min-width : 960px) {
 
 .main-content p, .main-content h4,.button-all,.input-wrapper::after, label, .input-text::placeholder{
     font-size: 14px !important;
@@ -313,6 +319,33 @@ h4,p{
 
 .button-submit-group{
     margin-top: 50px;
+}
+
+
+.pickerColor{
+    width: 43px;
+    height: 43px;
+    margin-left: 0.9rem;
+    margin-top: 2.5px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 3px 3px var(--main-color);
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+   
+}
+
+.pickerColor span{
+   position: absolute;
+    width: 32px;
+    height: 32px;
+    transform: translate(5px, 5px);
+    flex-shrink: 0;
+    background-color: var(--main-color);
+    border-radius: 50%;
+  
 }
 
 

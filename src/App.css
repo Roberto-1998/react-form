@@ -1,7 +1,6 @@
 
 .form-content{
-    max-width: 600px;
-    margin: 0 auto;
+   margin: 0 auto;
 }
 
 .svg-content{
@@ -12,7 +11,7 @@
 
 
 
-@media only screen and (min-width : 992px) {
+@media only screen and (min-width : 960px) {
 
     .content{
         display: flex;
@@ -20,19 +19,21 @@
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 100px;
+        flex-wrap: nowrap;
     }
     .form-content{
        margin: 42px 90px;
-       flex: 60%;
+       max-width: 530px;
+       flex-shrink: 0;
+    
+      
      
     }
 
-    .svg-content{
+    .svg-content{       
         margin-top: 250px;
         display: block;
-        align-self: flex-start;
-        flex: 40%;
-         
+        align-self: flex-start;      
     }
    
 }

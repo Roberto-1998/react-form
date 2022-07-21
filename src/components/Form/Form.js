@@ -4,7 +4,7 @@ import './Form.css'
 import {useForm} from 'react-hook-form'
 
 /* MATERIAL UI */
-import {Avatar, Button, ButtonGroup, RadioGroup, FormControl,FormControlLabel, Radio} from '@mui/material'
+import {Avatar, Button, ButtonGroup, RadioGroup, FormControl, Radio, useMediaQuery} from '@mui/material'
 import { ChromePicker, CirclePicker } from 'react-color';
 import {UnarchiveSharp,ErrorOutlineSharp} from '@mui/icons-material'
 
@@ -15,6 +15,8 @@ const Form=(props)=>{
     const {updateData}=props
 
     const {register, handleSubmit, watch, reset}=useForm({})
+
+    const isDesktop=useMediaQuery('(min-width:960px)');
        
 
     const initialState={
@@ -189,7 +191,7 @@ const Form=(props)=>{
                     <div className="flex-column margin-15">
                         <h4 className="bold">¿Cuántas personas trabajarán contigo, incluyéndote a ti ?</h4>
                         <div className="flex-row margin-10">
-                            <ButtonGroup variant="text" aria-label="text button group">
+                            <ButtonGroup variant="text" aria-label="text button group" style={{display:'flex', flexWrap:'wrap', gap:'12px'}}>
                             <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='1' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'1'})}  >Sólo yo</Button>
                             <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='2-10' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'2-10'})}  >2-10</Button>
                             <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='11-25' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'11-25'})} >11-25</Button>
@@ -219,7 +221,7 @@ const Form=(props)=>{
                             <div className="flex-row margin-10 circle-picker" >
 
                               
-                                    <CirclePicker circleSize={45}   color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} width="100%" colors={['#39b0ff','#04B58B', '#3E9C4B', '#B6BC00', '#E59100', '#EE1F50','#D6198A', '#B321F1']}>
+                                    <CirclePicker circleSize={isDesktop ? 45 : 25}   color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} width="100%" colors={['#39b0ff','#04B58B', '#3E9C4B', '#B6BC00', '#E59100', '#EE1F50','#D6198A', '#B321F1']}>
                                     </CirclePicker>
                                    
                                         <span className="pickerColor" onClick={()=>dispatch({type:'SET_COLOR_PICKER_ACTIVE', payload:!isColorPickerActive})}>
@@ -242,7 +244,7 @@ const Form=(props)=>{
                             >
                                 <div className="flex-row margin-10 justify-content-space-beetwen">
                                     <div className={`radio-box flex-row ${watch('privacy')==='private' ? 'active-radio-box' : ''}`} >
-                                        <Radio className="align-self-start" value="private" sx={{color:`${watch('privacy')==='public' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')} checked={watch('privacy')==='private'}   />
+                                        <Radio className="align-self-start" value="private" sx={{color:`${watch('privacy')==='private' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')} checked={watch('privacy')==='private'}   />
                                         <div >
                                             <h4>Privado</h4>
                                             <p>El contenido será visible sólo para tí y los miembros de tu Organización</p>
@@ -251,7 +253,7 @@ const Form=(props)=>{
                                     </div>
                                     
                                     <div className={`radio-box flex-row ${watch('privacy')==='public' ? 'active-radio-box' : ''}`}  >
-                                        <Radio className="align-self-start" value="public" sx={{color:`${watch('privacy')==='public' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')}  checked={watch('privacy')==='public'}   />
+                                        <Radio className="align-self-start" value="public"  sx={{color:`${watch('privacy')==='public' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')}  checked={watch('privacy')==='public'}   />
                                         <div >
                                             <h4>Público</h4>
                                             <p>Cualquiera con el vínculo podrá ver la actividad de tu Organización</p>
