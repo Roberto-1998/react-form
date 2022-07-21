@@ -50,15 +50,16 @@ h4,p{
 
 .warning-icon{
     color: var(--gray-color);
+    font-size: 17px !important; 
 }
 /* FIN PROPIEDADES GLOBALES */
 
 
 
 /* PARA MATERIAL UI */
-.css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+/* .css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
     text-transform: none !important;
-  }
+  } */
   
   .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
     color: var(--main-color) !important;
@@ -172,7 +173,7 @@ h4,p{
 }
 
 .radio-box p{
-    padding-top: 0.3rem;
+   
     color: var(--gray-color);
 }
 
@@ -194,7 +195,7 @@ h4,p{
 .button-logo{
     color: var(--gray-color) !important;
     margin-left: 0.5rem !important;
-    padding: 0.1em 0.3em !important;  
+    padding: 0.2em 0.3em !important;  
 }
 
 .button-work-people{

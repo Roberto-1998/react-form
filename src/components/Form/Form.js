@@ -145,7 +145,7 @@ const Form=(props)=>{
                     <div className="flex-row align-items-center margin-10">
                         {image ? (<img src={image} alt="" className="image-uploaded" />) : (<Avatar className="avatar-logo">B</Avatar>)}
                        
-                        <Button variant="outlined" className="button-logo button-all button-gray"  startIcon={<UnarchiveSharp />} component='label'>
+                        <Button variant="outlined" className="button-logo button-all button-gray"  style={{textTransform:'none'}}  startIcon={<UnarchiveSharp />} component='label'>
                         Subir logo
                         <input type="file" onChange={onImageChange} hidden  />
                         </Button>
@@ -190,12 +190,12 @@ const Form=(props)=>{
                         <h4 className="bold">¿Cuántas personas trabajarán contigo, incluyéndote a ti ?</h4>
                         <div className="flex-row margin-10">
                             <ButtonGroup variant="text" aria-label="text button group">
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='1' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'1'})} >Sólo yo</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='2-10' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'2-10'})}>2-10</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='11-25' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'11-25'})}>11-25</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='26-50' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'26-50'})}>26-50</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='51-100' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'51-100'})}>51-100</Button>
-                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='500+' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'500+'})}>500+</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='1' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'1'})} style={{textTransform:'none'}} >Sólo yo</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='2-10' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'2-10'})}  style={{textTransform:'none'}}>2-10</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='11-25' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'11-25'})} style={{textTransform:'none'}}>11-25</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='26-50' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'26-50'})} style={{textTransform:'none'}}>26-50</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='51-100' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'51-100'})} style={{textTransform:'none'}}>51-100</Button>
+                            <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='500+' ? 'active-color' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'500+'})} style={{textTransform:'none'}}>500+</Button>
                             </ButtonGroup>
                     </div>
 
@@ -268,7 +268,7 @@ const Form=(props)=>{
 
                  <div className="margin-15">
                     <Button variant="contained" color="primary" type="submit" className="button-save-form button-all padding-form-button capitalize">Guardar cambios</Button>
-                    <Button variant="outlined" className="button-all button-gray padding-form-button color-button-black" onClick={resetForm}>Descartar</Button>
+                    <Button variant="outlined" className="button-all button-gray padding-form-button color-button-black" onClick={resetForm} style={{textTransform:'none'}}>Descartar</Button>
                 </div>
 
 
