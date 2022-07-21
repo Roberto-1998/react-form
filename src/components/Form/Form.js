@@ -144,7 +144,7 @@ const Form=(props)=>{
                 <div className="flex-column margin-15">
                     <h4>Logo del espacio</h4>
                     
-                    <div className="flex-row align-items-center margin-10">
+                    <div className="flex-row align-items-center margin-10 wrap gap">
                         {image ? (<img src={image} alt="" className="image-uploaded" />) : (<Avatar className="avatar-logo">B</Avatar>)}
                        
                         <Button variant="outlined" className="button-logo button-all button-gray"  startIcon={<UnarchiveSharp />} component='label'>
@@ -242,8 +242,8 @@ const Form=(props)=>{
                                 aria-labelledby="demo-controlled-radio-buttons-group"
                                 name="controlled-radio-buttons-group"
                             >
-                                <div className="flex-row margin-10 justify-content-space-beetwen">
-                                    <div className={`radio-box flex-row ${watch('privacy')==='private' ? 'active-radio-box' : ''}`} >
+                                <div className="flex-row margin-10 wrap gap">
+                                    <div className={`radio-box flex-row ${watch('privacy')==='private' ? 'active-radio-box' : ''}`}>
                                         <Radio className="align-self-start" value="private" sx={{color:`${watch('privacy')==='private' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')} checked={watch('privacy')==='private'}   />
                                         <div >
                                             <h4>Privado</h4>
@@ -268,7 +268,7 @@ const Form=(props)=>{
                     </div>
 
 
-                 <div className="button-submit-group">
+                 <div className="button-submit-group flex-row wrap gap">
                     <Button variant="contained" color="primary" type="submit" className="button-save-form button-all padding-form-button">Guardar cambios</Button>
                     <Button variant="outlined" className="button-all button-gray padding-form-button color-button-black" onClick={resetForm}>Descartar</Button>
                 </div>

@@ -37,15 +37,15 @@ h4,p{
 }
 
 .main-content h1{
-    font-size: 3.5vmin;
+    font-size: 16px;
 }
 
 .main-content h4, .main-content label{
-    font-size: 3.1vmin;
+    font-size: 14px;
 }
 
 .main-content p{
-    font-size: 2.7vmin;
+    font-size: 14px;
     line-height: 1.5;
 }
 
@@ -70,9 +70,20 @@ h4,p{
 
 /* -------PARA UTILIZAR FLEXBOX--------- */
 
+
+
 .flex-row{
     display: flex;
     flex-direction: row;
+}
+
+.wrap{
+    flex-wrap: wrap;
+    
+}
+
+.gap{
+    gap: 10px;
 }
 
 .flex-column{
@@ -130,10 +141,11 @@ h4,p{
     margin: 0.5rem 0;
     border: var(--color-border) 1px solid !important;
     border-radius: 3px;
+    font-size: 14px;
 }
 
 .input-text::placeholder{
-    font-size: 2.7vmin;
+    font-size: 14px;
     color: var(--gray-color);
     font-family: 'Fira Sans', sans-serif !important;
     
@@ -159,7 +171,7 @@ h4,p{
     right: 10px;
    top: 35%;
    color: var(--gray-color);
-   font-size: 2.7vmin;
+   font-size: 14px;
     
 }
 
@@ -169,11 +181,12 @@ h4,p{
 
 /* RADIO BOX */
 .radio-box{
+    max-width: 220px;
     padding: 0.4em;
     min-height: 96.56px;
     border-radius: 8px;
     border: 1px solid var(--color-border);
-    margin-right: 0.8rem;
+   
 }
 
 .radio-box p{
@@ -188,7 +201,7 @@ h4,p{
 }
 
 .button-all{
-    font-size: 2.7vmin !important;
+    font-size: 14px !important;
     text-transform: none !important;
 }
 
@@ -292,9 +305,6 @@ h4,p{
 
 @media only screen and (min-width : 960px) {
 
-.main-content p, .main-content h4,.button-all,.input-wrapper::after, label, .input-text::placeholder{
-    font-size: 14px !important;
-}
 
 
 
@@ -305,11 +315,11 @@ h4,p{
 }
 
 .radio-box{
-    max-width: 299px;
+    max-width: 250px;
     padding: 0.5em;
     border-radius: 8px;
     border: 1px solid var(--color-border);
-    margin-right: 0.8rem;
+   
 }
 
 .button-work-people{
