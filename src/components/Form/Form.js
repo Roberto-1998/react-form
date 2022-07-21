@@ -158,8 +158,8 @@ const Form=(props)=>{
                     <ErrorOutlineSharp className="warning-icon"></ErrorOutlineSharp>
                       
                         <div className="icon-text">
-                           <p>Este logo identificará tu espacio entre el resto</p>  
-                           <p>Preferiblemente sube una imagen .png igual o superior a 65px a 72ppp con fondo transparente</p>
+                           <p>Este logo identificará tu espacio entre el resto.</p>  
+                           <p>Preferiblemente sube una imagen .png igual o superior a 65px a 72ppp con fondo transparente.</p>
                         </div>
                     </div>
                 </div>
@@ -181,7 +181,7 @@ const Form=(props)=>{
                                     <ErrorOutlineSharp className="warning-icon"></ErrorOutlineSharp>
                                     <div className="icon-text" >
                                         <p>Puedes cambiar la URL de tu espacio (dirección web) en cualquier momento, pero por cortesía hacia tus compañeros de trabajo y otros usuarios de Plankton, por favor no lo hagas muy seguido :)</p>
-                                        <p>Nota: Si cambias la URL de tu espacio, Plankton automáticamente redireccionará desde la antigua dirección hacia la nueva. En cualquier caso, deberías asegurarte que tus compañeros sepan acerca del cambio porque la dirección anterior pasará a estar libre y puede ser usada por otro espacio en el futuro</p>
+                                        <p>Nota: Si cambias la URL de tu espacio, Plankton automáticamente redireccionará desde la antigua dirección hacia la nueva. En cualquier caso, deberías asegurarte que tus compañeros sepan acerca del cambio porque la dirección anterior pasará a estar libre y puede ser usada por otro espacio en el futuro.</p>
                                     </div>
                             </div>
                     </div>
@@ -218,10 +218,10 @@ const Form=(props)=>{
                     <div className="flex-column margin-15">
                         <h4>Color del tema</h4>
                         <div className="flex-column align-items-start"  >
-                            <div className="flex-row margin-10 circle-picker" >
+                            <div className="flex-row margin-10 circle-picker" style={{justifyContent:'space-between'}} >
 
                               
-                                    <CirclePicker circleSize={isDesktop ? 45 : 25}   color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} width="100%" colors={['#39b0ff','#04B58B', '#3E9C4B', '#B6BC00', '#E59100', '#EE1F50','#D6198A', '#B321F1']}>
+                                    <CirclePicker circleSpacing={18} circleSize={isDesktop ? 45 : 25}   color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} width="100%" colors={['#39b0ff','#04B58B', '#3E9C4B', '#B6BC00', '#E59100','#E55C00' ,'#EE1F50','#D6198A', '#B321F1']}>
                                     </CirclePicker>
                                    
                                         <span className="pickerColor" onClick={()=>dispatch({type:'SET_COLOR_PICKER_ACTIVE', payload:!isColorPickerActive})}>
@@ -242,10 +242,10 @@ const Form=(props)=>{
                                 aria-labelledby="demo-controlled-radio-buttons-group"
                                 name="controlled-radio-buttons-group"
                             >
-                                <div className="flex-row margin-10 wrap gap">
+                                <div className="flex-row margin-10 wrap gap" style={{justifyContent:'space-between', width:'100'}}>
                                     <div className={`radio-box flex-row ${watch('privacy')==='private' ? 'active-radio-box' : ''}`}>
-                                        <Radio className="align-self-start" value="private" sx={{color:`${watch('privacy')==='private' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')} checked={watch('privacy')==='private'}   />
-                                        <div >
+                                        <Radio className="align-self-start" size="small" value="private" sx={{color:`${watch('privacy')==='private' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')} checked={watch('privacy')==='private'}   />
+                                        <div className="radio-box-content" >
                                             <h4>Privado</h4>
                                             <p>El contenido será visible sólo para tí y los miembros de tu Organización</p>
                                         </div>
@@ -253,8 +253,8 @@ const Form=(props)=>{
                                     </div>
                                     
                                     <div className={`radio-box flex-row ${watch('privacy')==='public' ? 'active-radio-box' : ''}`}  >
-                                        <Radio className="align-self-start" value="public"  sx={{color:`${watch('privacy')==='public' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')}  checked={watch('privacy')==='public'}   />
-                                        <div >
+                                        <Radio className="align-self-start" size="small" value="public"  sx={{color:`${watch('privacy')==='public' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')}  checked={watch('privacy')==='public'}   />
+                                        <div  className="radio-box-content"  >
                                             <h4>Público</h4>
                                             <p>Cualquiera con el vínculo podrá ver la actividad de tu Organización</p>
                                         </div>

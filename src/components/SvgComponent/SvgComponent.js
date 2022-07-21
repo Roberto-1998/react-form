@@ -494,7 +494,7 @@ const SvgComponent = (props) => {
         </text>
         <text className="w" transform="translate(3892.538 705.215)">
           <tspan x={0} y={0}>
-            {domain !=='' ? domain : 'mi_dominio.plankton.com/proyectos/plan_de_ventas'}
+            {domain !=='' ? domain+'.dofleini.com' : 'mi_dominio.plankton.com/proyectos/plan_de_ventas'}
           </tspan>
         </text>
         <text className="w" transform="translate(3742.538 673.215)">
