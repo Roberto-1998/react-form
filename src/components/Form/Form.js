@@ -14,7 +14,7 @@ const Form=(props)=>{
     // Función recibida desde App, a traves de la cual se enviará data
     const {updateData}=props
 
-    const {register, handleSubmit, watch, reset}=useForm({})
+    const {register, handleSubmit, watch, reset, setValue}=useForm({})
 
     const isDesktop=useMediaQuery('(min-width:960px)');
        
@@ -23,7 +23,8 @@ const Form=(props)=>{
         image:null,
         peopleWork:'',
         color:'',
-        isColorPickerActive:false
+        isColorPickerActive:false,
+      
     }
 
     const reducer=(state, action)=>{
@@ -236,7 +237,7 @@ const Form=(props)=>{
                                 name="controlled-radio-buttons-group"
                             >
                                 <div className="flex-row margin-10 wrap gap" >
-                                    <div className={`radio-box flex-row ${watch('privacy')==='private' ? 'active-radio-box' : ''}`}>
+                                    <div className={`radio-box flex-row ${watch('privacy')==='private' ? 'active-radio-box' : ''}`} onClick={()=>setValue('privacy', 'private')}>
                                         <Radio className="align-self-start" size="small" value="private" sx={{color:`${watch('privacy')==='private' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')} checked={watch('privacy')==='private'}   />
                                         <div className="radio-box-content" >
                                             <h4>Privado</h4>
@@ -245,7 +246,7 @@ const Form=(props)=>{
                                 
                                     </div>
                                     
-                                    <div className={`radio-box flex-row ${watch('privacy')==='public' ? 'active-radio-box' : ''}`}  >
+                                    <div className={`radio-box flex-row ${watch('privacy')==='public' ? 'active-radio-box' : ''}`} onClick={()=>setValue('privacy', 'public')} >
                                         <Radio className="align-self-start" size="small" value="public"  sx={{color:`${watch('privacy')==='public' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')}  checked={watch('privacy')==='public'}   />
                                         <div  className="radio-box-content"  >
                                             <h4>Público</h4>

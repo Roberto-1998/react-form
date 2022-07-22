@@ -175,6 +175,7 @@ p{
 
 /* RADIO BOX */
 .radio-box{
+    cursor: pointer;
     max-width: 220px;
     padding: 0.4em;
     min-height: 96.56px;
