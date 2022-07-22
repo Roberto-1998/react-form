@@ -36,8 +36,6 @@ p{
 .main-content{
     margin: 0 auto;
     width: 100%;
-   
-   
 }
 
 .main-content h1{
@@ -57,15 +55,12 @@ p{
     color: var(--gray-color);
     font-size: 20px !important; 
 }
-/* FIN PROPIEDADES GLOBALES */
+
 
 
 
 /* PARA MATERIAL UI */
-/* .css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
-    text-transform: none !important;
-  } */
-  
+
   .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
     color: var(--main-color) !important;
 }
@@ -73,9 +68,6 @@ p{
 
 
 /* -------PARA UTILIZAR FLEXBOX--------- */
-
-
-
 .flex-row{
     display: flex;
     flex-direction: row;
@@ -152,8 +144,6 @@ p{
     font-size: 14px;
     color: var(--gray-color);
     font-family: 'Fira Sans', sans-serif !important;
-    
-   
 }
 
 
@@ -202,6 +192,11 @@ p{
     margin-top: 9px;
 }
 
+.active-radio-box{
+    border-color: var(--main-color) !important;
+    color: #149FFC !important;
+}
+
 
 /* BUTTONS */
 .color-button-black{
@@ -243,10 +238,7 @@ p{
 }
 
 
-.active-radio-box{
-    border-color: var(--main-color) !important;
-    color: #149FFC !important;
-}
+
 
 
 .padding-form-button{
@@ -299,17 +291,6 @@ p{
 
 
 
-.group{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap !important;
-}
-
-
-
-.chrome-picker{
-    transition: all 500ms ease;
-}
 
 @media only screen and (min-width : 960px) {
 

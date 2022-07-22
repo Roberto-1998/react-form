@@ -190,7 +190,7 @@ const Form=(props)=>{
                     <div className="flex-column margin-15">
                         <h4 className="bold">¿Cuántas personas trabajarán contigo, incluyéndote a ti ?</h4>
                         <div className="flex-row margin-10">
-                            <ButtonGroup variant="text" aria-label="text button group" style={{display:'flex', flexWrap:'wrap', gap:'12px'}}>
+                            <ButtonGroup variant="text" aria-label="text button group" style={{display:'flex', flexWrap:'wrap', gap:'10px'}}>
                             <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='1' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'1'})}  >Sólo yo</Button>
                             <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='2-10' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'2-10'})}  >2-10</Button>
                             <Button  variant="outlined" className={`button-work-people button-all button-gray color-button-black ${peopleWork==='11-25' ? 'active-color-button' :''}`} onClick={()=>dispatch({type:'SET_PEOPLE_WORK', payload:'11-25'})} >11-25</Button>

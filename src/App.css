@@ -19,12 +19,15 @@
         flex-wrap: nowrap;
     }
     .form-content{
-       margin: 42px 110px 58.1px 110px;
+     /*Medidas de margin para cumplir con el diseño  */
+       margin: 42px 0px 58.1px 110px;
        max-width: 613px;
        flex-shrink: 0;
     }
 
-    .svg-content{       
+    .svg-content{
+    /*Medidas de margin para cumplir con el diseño  */
+        margin-left: 392px;
         margin-top: 191px;
         display: block;
         align-self: flex-start;      
