@@ -1,15 +1,33 @@
-import React, { useReducer} from "react";
+import React, { useReducer, useState} from "react";
 import './Form.css'
 
 import {useForm} from 'react-hook-form'
 
 /* MATERIAL UI */
-import {Avatar, Button, ButtonGroup, RadioGroup, FormControl, Radio, useMediaQuery} from '@mui/material'
+import {Avatar, Button, ButtonGroup, RadioGroup, FormControl, Radio, useMediaQuery, Popover} from '@mui/material'
 import { ChromePicker, CirclePicker } from 'react-color';
 import {UnarchiveSharp,ErrorOutlineSharp} from '@mui/icons-material'
 
 
 const Form=(props)=>{
+
+
+    // POPOVER
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+  
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
+
+// END POPOVER
+
 
     // Función recibida desde App, a traves de la cual se enviará data
     const {updateData}=props
@@ -92,7 +110,15 @@ const Form=(props)=>{
         updateData('color',colorPicked)
     }
 
-   
+
+// COLOR PICKER FUNCTION
+const handleColorPicker=(e)=>{
+
+    dispatch({type:'SET_COLOR_PICKER_ACTIVE', payload:!isColorPickerActive})
+
+    handleClick(e)
+
+}
 
 // Obtener image, actualizar estado y enviarla a App
    const onImageChange = (event) => {
@@ -135,6 +161,12 @@ const Form=(props)=>{
         updateData('image', null)
      
     }
+
+
+  
+    
+  
+
 
 
     return(
@@ -221,11 +253,27 @@ const Form=(props)=>{
                             <div className="flex-row margin-10 circle-picker" style={{justifyContent:'space-between'}} >
                                     <CirclePicker circleSpacing={18} circleSize={isDesktop ? 45 : 25}   color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} width="100%" colors={['#39b0ff','#04B58B', '#3E9C4B', '#B6BC00', '#E59100','#E55C00' ,'#EE1F50','#D6198A', '#B321F1']}>
                                     </CirclePicker>
-                                    <span className="pickerColor" onClick={()=>dispatch({type:'SET_COLOR_PICKER_ACTIVE', payload:!isColorPickerActive})}>
+                                    <span className="pickerColor" onClick={handleColorPicker}  aria-describedby={id}>
                                         <span></span>
                                     </span>  
+
+                                    <Popover
+                                    id={id}
+                                    open={open}
+                                    anchorEl={anchorEl}
+                                    onClose={handleClose}
+                                    anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                    }}
+                                >
+                                    <ChromePicker className="margin-10 chrome-picker" color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} ></ChromePicker>
+                                     </Popover>
                             </div>
-                            {(isColorPickerActive &&  <ChromePicker className="margin-10 chrome-picker" color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} ></ChromePicker>)}                 
+
+                           
+
+                                        
                         </div>
                     </div>
 
