@@ -24,7 +24,6 @@ const Form=(props)=>{
         peopleWork:'',
         color:'',
         isColorPickerActive:false
-
     }
 
     const reducer=(state, action)=>{
@@ -219,30 +218,24 @@ const Form=(props)=>{
                         <h4>Color del tema</h4>
                         <div className="flex-column align-items-start"  >
                             <div className="flex-row margin-10 circle-picker" style={{justifyContent:'space-between'}} >
-
-                              
                                     <CirclePicker circleSpacing={18} circleSize={isDesktop ? 45 : 25}   color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} width="100%" colors={['#39b0ff','#04B58B', '#3E9C4B', '#B6BC00', '#E59100','#E55C00' ,'#EE1F50','#D6198A', '#B321F1']}>
                                     </CirclePicker>
-                                   
-                                        <span className="pickerColor" onClick={()=>dispatch({type:'SET_COLOR_PICKER_ACTIVE', payload:!isColorPickerActive})}>
+                                    <span className="pickerColor" onClick={()=>dispatch({type:'SET_COLOR_PICKER_ACTIVE', payload:!isColorPickerActive})}>
                                         <span></span>
-                                        </span>
-                                    
+                                    </span>  
                             </div>
                             {(isColorPickerActive &&  <ChromePicker className="margin-10 chrome-picker" color={color} onChange={updatedColor=>handleColor(updatedColor.hex)} ></ChromePicker>)}                 
                         </div>
-                       
                     </div>
 
-                    <div>
-                        <div className="margin-15">
+                    <div className="margin-15">
                         <FormControl>
                             <h4>Privacidad del espacio</h4>
                             <RadioGroup
                                 aria-labelledby="demo-controlled-radio-buttons-group"
                                 name="controlled-radio-buttons-group"
                             >
-                                <div className="flex-row margin-10 wrap gap" style={{justifyContent:'space-between', width:'100'}}>
+                                <div className="flex-row margin-10 wrap gap" >
                                     <div className={`radio-box flex-row ${watch('privacy')==='private' ? 'active-radio-box' : ''}`}>
                                         <Radio className="align-self-start" size="small" value="private" sx={{color:`${watch('privacy')==='private' ? '#48b5fe' :'#CFD0D2'}`}} {...register('privacy')} checked={watch('privacy')==='private'}   />
                                         <div className="radio-box-content" >
@@ -258,22 +251,17 @@ const Form=(props)=>{
                                             <h4>Público</h4>
                                             <p>Cualquiera con el vínculo podrá ver la actividad de tu Organización</p>
                                         </div>
-                                
                                     </div>
                                 </div>
                                
                             </RadioGroup>
                         </FormControl>
-                        </div>
                     </div>
-
 
                  <div className="button-submit-group flex-row wrap gap">
                     <Button variant="contained" color="primary" type="submit" className="button-save-form button-all padding-form-button">Guardar cambios</Button>
                     <Button variant="outlined" className="button-all button-gray padding-form-button color-button-black" onClick={resetForm}>Descartar</Button>
                 </div>
-
-
             </form>
         </div>
     )

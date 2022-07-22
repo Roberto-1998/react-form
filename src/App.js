@@ -3,11 +3,6 @@ import Form from "./components/Form";
 import SvgComponent from "./components/SvgComponent";
 import './App.css'
 
-
-
-
-
-
 const App=()=>{
 
   const initialState={
@@ -100,6 +95,7 @@ const updateData=(type, data)=>{
 
   return(
     <section className="content" >
+      
       <div className="form-content">
         <Form updateData={updateData}  ></Form>
       </div>
